@@ -1,0 +1,65 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "Start API in Debug Mode",
+      "type": "shell",
+      "command": "npm",
+      "args": ["run", "debug:api"],
+      "group": "build",
+      "presentation": {
+        "reveal": "always",
+        "panel": "new",
+        "showReuseMessage": false
+      },
+      "isBackground": true,
+      "problemMatcher": {
+        "owner": "typescript",
+        "source": "ts",
+        "applyTo": "closedDocuments",
+        "fileLocation": "relative",
+        "pattern": "$tsc",
+        "background": {
+          "activeOnStart": true,
+          "beginsPattern": "Starting Nest application",
+          "endsPattern": "Application is running on"
+        }
+      }
+    },
+    {
+      "label": "Build API",
+      "type": "shell",
+      "command": "nx",
+      "args": ["build", "api"],
+      "group": "build",
+      "presentation": {
+        "reveal": "silent",
+        "panel": "shared"
+      },
+      "problemMatcher": ["$tsc"]
+    },
+    {
+      "label": "Clean Build",
+      "type": "shell",
+      "command": "nx",
+      "args": ["reset"],
+      "group": "build",
+      "presentation": {
+        "reveal": "always",
+        "panel": "shared"
+      }
+    },
+    {
+      "label": "Run API Tests",
+      "type": "shell",
+      "command": "nx",
+      "args": ["test", "api"],
+      "group": "test",
+      "presentation": {
+        "reveal": "always",
+        "panel": "shared"
+      },
+      "problemMatcher": ["$tsc"]
+    }
+  ]
+} 
